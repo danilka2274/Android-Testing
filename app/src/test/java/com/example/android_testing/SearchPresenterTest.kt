@@ -2,9 +2,9 @@ package com.example.android_testing
 
 import com.example.android_testing.model.SearchResponse
 import com.example.android_testing.model.SearchResult
-import com.example.android_testing.presenter.SearchPresenter
+import com.example.android_testing.presenter.search.SearchPresenter
 import com.example.android_testing.repository.GitHubRepository
-import com.example.android_testing.view.ViewContract
+import com.example.android_testing.view.search.ViewSearchContract
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
@@ -22,7 +22,7 @@ class SearchPresenterTest {
     private lateinit var repository: GitHubRepository
 
     @Mock
-    private lateinit var viewContract: ViewContract
+    private lateinit var viewContract: ViewSearchContract
 
     @Before
     fun setUp() {
@@ -148,5 +148,11 @@ class SearchPresenterTest {
 
         //Убеждаемся, что ответ от сервера обрабатывается корректно
         verify(viewContract, times(1)).displaySearchResults(searchResults, 101)
+    }
+
+    @Test
+    fun onDetach() {
+        presenter.onDetach()
+        assertNull(presenter.viewContract)
     }
 }

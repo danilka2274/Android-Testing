@@ -4,6 +4,8 @@ import com.example.android_testing.model.SearchResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
+
 internal class GitHubRepository(private val gitHubApi: GitHubApi) {
 
     fun searchGithub(
