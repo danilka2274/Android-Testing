@@ -1,5 +1,6 @@
 package com.example.android_testing
 
+
 import com.example.android_testing.model.SearchResponse
 import com.example.android_testing.model.SearchResult
 import com.example.android_testing.presenter.search.SearchPresenter
@@ -148,11 +149,5 @@ class SearchPresenterTest {
 
         //Убеждаемся, что ответ от сервера обрабатывается корректно
         verify(viewContract, times(1)).displaySearchResults(searchResults, 101)
-    }
-
-    @Test
-    fun onDetach() {
-        presenter.onDetach()
-        assertNull(presenter.viewContract)
     }
 }

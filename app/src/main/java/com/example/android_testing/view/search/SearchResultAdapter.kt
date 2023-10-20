@@ -7,9 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.android_testing.R
 import com.example.android_testing.model.SearchResult
 import kotlinx.android.synthetic.main.list_item.view.*
-import com.example.android_testing.view.search.SearchResultAdapter.SearchResultViewHolder
 
-internal class SearchResultAdapter : RecyclerView.Adapter<SearchResultViewHolder>() {
+internal class SearchResultAdapter : RecyclerView.Adapter<SearchResultAdapter.SearchResultViewHolder>() {
 
     private var results: List<SearchResult> = listOf()
 

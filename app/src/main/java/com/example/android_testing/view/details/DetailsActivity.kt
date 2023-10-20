@@ -2,6 +2,7 @@ package com.example.android_testing.view.details
 
 import android.content.Context
 import android.content.Intent
+import java.util.Locale
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android_testing.R
@@ -18,12 +19,6 @@ class DetailsActivity : AppCompatActivity(), ViewDetailsContract {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
         setUI()
-        presenter.onAttach()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        presenter.onDetach()
     }
 
     private fun setUI() {
