@@ -6,6 +6,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.test.uiautomator.v18.BuildConfig
 import com.example.android_testing.R
 import com.example.android_testing.model.SearchResult
 import com.example.android_testing.presenter.RepositoryContract
@@ -15,14 +16,12 @@ import com.example.android_testing.repository.FakeGitHubRepository
 import com.example.android_testing.repository.GitHubApi
 import com.example.android_testing.repository.GitHubRepository
 import com.example.android_testing.view.details.DetailsActivity
-import kotlinx.android.synthetic.main.activity_details.totalCountTextView
-import kotlinx.android.synthetic.main.activity_main.progressBar
-import kotlinx.android.synthetic.main.activity_main.recyclerView
-import kotlinx.android.synthetic.main.activity_main.searchEditText
-import kotlinx.android.synthetic.main.activity_main.toDetailsActivityButton
+import com.example.android_testing.view.search.SearchResultAdapter
+import com.example.android_testing.view.search.ViewSearchContract
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.Locale
+import java.util.*
 
 class MainActivity : AppCompatActivity(), ViewSearchContract {
 
