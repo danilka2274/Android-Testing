@@ -1,4 +1,4 @@
-package com.example.android_testing
+package com.example.android_testing.espresso
 
 import android.view.View
 import androidx.test.core.app.ActivityScenario
@@ -9,6 +9,8 @@ import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.uiautomator.v18.BuildConfig
+import com.example.android_testing.R
 import com.example.android_testing.view.search.MainActivity
 import org.hamcrest.Matcher
 import org.junit.After
@@ -32,7 +34,7 @@ class MainActivityEspressoTest {
         onView(withId(R.id.searchEditText)).perform(replaceText("algol"), closeSoftKeyboard())
         onView(withId(R.id.searchEditText)).perform(pressImeActionButton())
 
-        if (BuildConfig.TYPE == MainActivity.FAKE) {
+        if (BuildConfig.BUILD_TYPE == MainActivity.FAKE) {
             onView(withId(R.id.totalCountTextView)).check(matches(withText("Number of results: 42")))
         } else {
             onView(isRoot()).perform(delay())
@@ -40,7 +42,7 @@ class MainActivityEspressoTest {
         }
     }
 
-    private fun delay(): ViewAction {
+    private fun delay(): ViewAction? {
         return object : ViewAction {
             override fun getConstraints(): Matcher<View> = isRoot()
             override fun getDescription(): String = "wait for $2 seconds"
