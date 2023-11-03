@@ -1,7 +1,6 @@
 package com.example.android_testing
 
 import org.junit.Assert.assertEquals
-
 import org.junit.Test
 
 /**
